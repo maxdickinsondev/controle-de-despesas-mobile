@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Index from './src/index';
+import Routes from './src/routes';
 
 export default function App() {
-  return <Index />
+  return (
+    <Routes />
+  );
 }

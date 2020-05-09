@@ -1,19 +1,16 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-import Expenses from './pages/Expenses';
-import Paidoff from './pages/Paidoff';
+import Login from './pages/Login';
+import Tabs from './Tabs';
 
-const Tab = createMaterialTopTabNavigator();
+const Routes = createAppContainer(
+    createStackNavigator({
+        Login,
+        Tabs
+    }, {
+        headerMode: 'none'
+    })
+);
 
-export default function Routes() {
-    return (
-        <NavigationContainer>
-            <Tab.Navigator>
-                <Tab.Screen name="Expenses" component={Expenses} />
-                <Tab.Screen name="Paidoff" component={Paidoff} />
-            </Tab.Navigator>
-        </NavigationContainer>
-    ); 
-}
+export default Routes;
