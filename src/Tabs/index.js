@@ -8,6 +8,19 @@ const Tab = createAppContainer(
     createMaterialTopTabNavigator({
         Expenses,
         Paidoff
+    }, {
+        tabBarOptions: {
+            upperCaseLabel: false,
+
+            tabStyle: {
+                height: 60,
+                backgroundColor: '#191111'
+            },
+
+            activeTintColor: '#ffffff',
+        },
+
+        tabBarPosition: 'bottom',
     })
 );
 

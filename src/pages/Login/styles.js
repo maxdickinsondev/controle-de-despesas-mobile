@@ -7,6 +7,7 @@ export const Background = styled.ImageBackground`
 
 export const Container = styled.View`
     padding: 40px;
+    padding-top: 0px;
     flex: 1;
     flex-direction: column;
     justify-content: center;
@@ -48,4 +49,15 @@ export const ButtonText = styled.Text`
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
+`;
+
+export const LogoArea = styled.View`
+    align-items: center;
+    margin-bottom: 40px;
+`;
+
+export const NameApp = styled.Text`
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #fff;
 `;
