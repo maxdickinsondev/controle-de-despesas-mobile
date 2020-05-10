@@ -80,3 +80,7 @@ export const List = styled.FlatList`
     
 `;
 
+export const ButtonLogout = styled.TouchableOpacity`
+
+`;
+

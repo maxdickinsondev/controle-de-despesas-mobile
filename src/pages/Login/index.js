@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AsyncStorage } from 'react-native';
 
 import bg from '../../assets/images/background.png';
 
@@ -19,14 +20,11 @@ export default function Login({ navigation }) {
             password
         };
 
-        console.log({
-            email,
-            password
-        });
-
         try {
-            await api.post('/login', data);
-            navigation.navigate('Tabs');
+            const response = await api.post('/login', data);
+
+            AsyncStorage.setItem('dwellerId', JSON.stringify(response.data.dwellerId));
+            navigation.navigate('Tabs', { dwellerName: response.data.name });
         } catch (error) {
             alert('Tente novamente mais tarde.');
         }
