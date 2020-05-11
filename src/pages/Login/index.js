@@ -23,8 +23,9 @@ export default function Login({ navigation }) {
         try {
             const response = await api.post('/login', data);
 
-            AsyncStorage.setItem('dwellerId', JSON.stringify(response.data.dwellerId));
-            navigation.navigate('Tabs', { dwellerName: response.data.name });
+            await AsyncStorage.setItem('dwellerId', JSON.stringify(response.data.dwellerId));
+            await AsyncStorage.setItem('dwellerName', JSON.stringify(response.data.name));
+            navigation.navigate('Tabs');
         } catch (error) {
             alert('Tente novamente mais tarde.');
         }

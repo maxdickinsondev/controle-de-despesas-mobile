@@ -1,13 +1,33 @@
-import React from 'react';
-import { StatusBar } from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import React, { useState, useEffect } from 'react';
+import { StatusBar, AsyncStorage } from 'react-native';
 
-import { Container, Area, PageName,
-    ExpensesArea, Description, ExpensesName,
-    ExpensesValue, ExpensesDate, ExpensesInfo
+import { Container, List, PageName,
+    Description, ExpensesName,
+    ExpensesValue, ExpensesDate, ExpensesInfo,
 } from './styles';
 
+import api from '../../services/api';
+
 export default function Paidoff() {
+    const [expenses, setExpenses] = useState([]);
+
+    useEffect(() => {
+        async function loadExpenses() {
+            const id = await AsyncStorage.getItem('dwellerId');
+            const dwellerId = JSON.parse(id);
+
+            const response = await api.get('/paid', {
+                headers: {
+                    Authorization: dwellerId
+                }
+            });
+
+            setExpenses(response.data);
+        }
+
+        loadExpenses();
+    }, []);
+
     return (
         <>
             <Container>
@@ -15,20 +35,21 @@ export default function Paidoff() {
                 <PageName>Quitadas</PageName>
             </Container>
 
-            <Area>
-                <ExpensesArea>
+            <List
+                data={expenses}
+                renderItem={({ item }) => (
                     <ExpensesInfo>
                         <Description>Despesa</Description>
-                        <ExpensesName>Aluguel</ExpensesName>
+                        <ExpensesName> {item.title} </ExpensesName>
 
                         <Description>Valor</Description>
-                        <ExpensesValue>R$ 20,75</ExpensesValue>
+                        <ExpensesValue> R$ {item.value} </ExpensesValue>
 
                         <Description>Vencimento</Description>
-                        <ExpensesDate>14/05</ExpensesDate>
+                        <ExpensesDate> {item.date} </ExpensesDate>
                     </ExpensesInfo>
-                </ExpensesArea>
-            </Area>
+                )}
+            />
         </> 
     );
 }

@@ -7,7 +7,7 @@ export const Container = styled.View`
     height: 70px;
 `;
 
-export const Area = styled.View`
+export const List = styled.FlatList`
     flex: 1;
     background: #2b2929;
     padding: 10px;
@@ -31,14 +31,6 @@ export const Username = styled.Text`
     padding-top: 10px;
     font-size: 18px;
     margin-bottom: 20px;
-`;
-
-export const ExpensesArea = styled.View`
-    background: #6BE277;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
 `;
 
 export const Description = styled.Text`
@@ -76,6 +68,10 @@ export const Logout = styled.Text`
 `;
 
 export const ExpensesInfo = styled.View`
-    
+    background: #6BE277;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 `;
 

@@ -7,6 +7,17 @@ export const Container = styled.View`
     height: 70px;
 `;
 
+export const ContainerLoading = styled.View`
+    flex: 1;
+`;
+
+export const AreaLoading = styled.View`
+    flex: 1;
+    background: #2b2929;
+    align-items: center;
+    justify-content: center;
+`;
+
 export const Area = styled.View`
     flex: 1;
     background: #2b2929;
