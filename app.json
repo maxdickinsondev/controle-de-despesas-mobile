@@ -1,11 +1,10 @@
 {
   "expo": {
-    "name": "HelloWorld",
+    "name": "PoupeMax",
     "slug": "poupemaxmobile",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,7 +12,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1E1C1C"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,6 +22,9 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.maxdickinson.poupemax"
     }
   }
 }

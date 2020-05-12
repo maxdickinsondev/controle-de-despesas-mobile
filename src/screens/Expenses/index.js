@@ -74,6 +74,7 @@ export default function Expenses({ navigation }) {
     
                     <List 
                         data={expenses}
+                        keyExtractor={item => String(item.expensesId)}
                         renderItem={({ item }) => (
                             <ExpensesArea>
                                 <Description>Despesa</Description>

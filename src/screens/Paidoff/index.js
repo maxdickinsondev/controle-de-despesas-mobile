@@ -37,6 +37,7 @@ export default function Paidoff() {
 
             <List
                 data={expenses}
+                keyExtractor={item => String(item.expensesId)}
                 renderItem={({ item }) => (
                     <ExpensesInfo>
                         <Description>Despesa</Description>
